@@ -6,10 +6,12 @@ bool Engine::init()
 {
 	return database.connectToDatabase();
 }
+
 bool Engine::lookup( QString hash )
 {
 	return database.findInDatabase(hash);
 }
+
 qint16 Engine::fileScan( QString path )
 {
 	if (!QFileInfo::exists(path)) {
@@ -23,6 +25,7 @@ qint16 Engine::fileScan( QString path )
 		return static_cast<qint16>(utils::Verdict::Clear);
 	}
 }
+
 QMap<QString, QString> Engine::hashes( QString path )
 {
 	QMap<QString, QString> qmap;
@@ -43,4 +46,9 @@ QString Engine::fileHashGenerate( QString path, QCryptographicHash::Algorithm ha
 	}
 
 	return QString();
+}
+
+const Database &Engine::getDatabase() const
+{
+	return database;
 }

@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	else if (parser.isSet(lookupOption)) {
+		engineHandler.generate(parser.value(scanOption));
 		return 0;
 	}
 	else if (parser.isSet(generateOption)) {

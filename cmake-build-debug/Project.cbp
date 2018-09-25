@@ -5,7 +5,7 @@
 		<Option title="Project"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Qt\;CMake Files\..\..\..\Qt\5.11.0\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\Qt5Sql\;CMake Files\CMakeModules\;CMake Files\src\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Qt\;CMake Files\..\..\..\Qt\5.11.0\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\Qt5Sql\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug"/>
@@ -175,9 +175,6 @@
 		</Unit>
 		<Unit filename="/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/../../../Qt/5.11.0/gcc_64/lib/cmake/Qt5Sql/Qt5Sql_QSQLiteDriverPlugin.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Qt\5.11.0\gcc_64\lib\cmake\Qt5Sql\"/>
-		</Unit>
-		<Unit filename="/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/CMakeModules/CodeCoverage.cmake">
-			<Option virtualFolder="CMake Files\CMakeModules\"/>
 		</Unit>
 		<Unit filename="/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\"/>

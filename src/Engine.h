@@ -18,5 +18,7 @@ public:
 private:
 
 	Database database;
+public:
+	const Database &getDatabase() const;
 
 };
