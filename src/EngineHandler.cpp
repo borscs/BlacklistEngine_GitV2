@@ -60,5 +60,41 @@ void EngineHandler::lookup(const QString &hash)
 
 	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
 }
+bool EngineHandler::scanFolder( QString path )
+{
+	if (!QFileInfo::exists(path)) {
+		utils.qStdOut() << "Given folder not found!";
+		return false;
+	}
+
+	QStringList results = utils.fileInFolder(path);
+	jsonHelper.clearJSON();
+
+	for (auto &result : results) {
+		switch (engine.fileScan(result)) {
+			case static_cast<int>(utils::Verdict::Clear):
+				jsonHelper.addToJSON("file_name", result);
+				jsonHelper.addToJSON("verdict", "no threat detected");
+				jsonHelper.createNode();
+				break;
+			case static_cast<int>(utils::Verdict::Threat):
+				jsonHelper.addToJSON("file_name", result);
+				jsonHelper.addToJSON("verdict", "blocked");
+				jsonHelper.createNode();
+				break;
+			case static_cast<int>(utils::Verdict::Error):
+				jsonHelper.addToJSON("file_name", result);
+				jsonHelper.addToJSON("error", "file not found!");
+				jsonHelper.createNode();
+				break;
+			default:
+				break;
+		}
+	}
+
+	utils.qStdOut() << jsonHelper.createJSON(jsonHelper.getQJsonArray()).toJson(QJsonDocument::Indented);
+
+	return false;
+}
 
 

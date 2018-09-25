@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	else if (parser.isSet(scanFolderOption)) {
-
+		engineHandler.scanFolder(parser.value(scanFolderOption));
 		return 0;
 	}
 
