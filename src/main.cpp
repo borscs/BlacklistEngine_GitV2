@@ -4,14 +4,13 @@
 
 #include "EngineHandler.h"
 
-int main(int argc, char *argv[])
+int main( int argc, char *argv[] )
 {
 	QCoreApplication a(argc, argv);
 	QCoreApplication::setApplicationName("Blacklist Engine");
 	QCoreApplication::setApplicationVersion("1.1.0");
 
 	EngineHandler engineHandler;
-
 
 	QCommandLineParser parser;
 	parser.setApplicationDescription(QCoreApplication::translate("main",
@@ -45,23 +44,23 @@ int main(int argc, char *argv[])
 
 	parser.process(a);
 
-	if (parser.isSet(scanOption)) {
+	if ( parser.isSet(scanOption)) {
 		engineHandler.scan(parser.value(scanOption));
 		return 0;
 	}
-	else if (parser.isSet(generateOption)) {
+	else if ( parser.isSet(generateOption)) {
 
-		engineHandler.generate(parser.value(scanOption));
+		engineHandler.generate(parser.value(generateOption));
 
 		return 0;
 	}
-	else if (parser.isSet(lookupOption)){
+	else if ( parser.isSet(lookupOption)) {
 
 		engineHandler.lookup(parser.value(lookupOption));
 
 		return 0;
 	}
-	else if (parser.isSet(scanFolderOption)) {
+	else if ( parser.isSet(scanFolderOption)) {
 		engineHandler.scanFolder(parser.value(scanFolderOption));
 		return 0;
 	}

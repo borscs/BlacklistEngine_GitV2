@@ -13,11 +13,9 @@ public:
 	qint16 fileScan(QString path);
 	QMap<QString, QString> hashes(QString path);
 	QString fileHashGenerate(QString path, QCryptographicHash::Algorithm algorithm);
-	const Database &getDatabase() const;
 
-private:
+public:
 
 	Database database;
-
 
 };

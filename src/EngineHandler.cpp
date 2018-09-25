@@ -37,11 +37,11 @@ void EngineHandler::generate(const QString &path)
 	jsonHelper.addToJSON("sha256", engine.fileHashGenerate(path, QCryptographicHash::Sha256));
 	jsonHelper.createNode();
 	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
-
-	engine.getDatabase().addRecord(jsonHelper.recordObject.value("md5").toString(),
+	engine.database.addRecord(jsonHelper.recordObject.value("md5").toString(),
 								   jsonHelper.recordObject.value("sha1").toString(),
 								   jsonHelper.recordObject.value("sha256").toString(),
-								   path);
+								   jsonHelper.recordObject.value("file_name").toString()
+								   );
 }
 void EngineHandler::lookup(const QString &hash)
 {
