@@ -11,7 +11,11 @@ void EngineHandler::scan(const QString &path)
 			utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
 			break;
 		case static_cast<int>(utils::Verdict ::Threat):
-
+			jsonHelper.clearJSON();
+			jsonHelper.addToJSON("file_name", path);
+			jsonHelper.addToJSON("verdict", "blocked");
+			jsonHelper.createNode();
+			utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
 			break;
 		case static_cast<int>(utils::Verdict ::Error):
 
