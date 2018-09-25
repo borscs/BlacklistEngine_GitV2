@@ -37,5 +37,10 @@ void EngineHandler::generate( QString path )
 	jsonHelper.addToJSON("sha256", engine.fileHashGenerate(path, QCryptographicHash::Sha256));
 	jsonHelper.createNode();
 	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
+
+	engine.getDatabase().addRecord(jsonHelper.recordObject.value("md5").toString(),
+								   jsonHelper.recordObject.value("sha1").toString(),
+								   jsonHelper.recordObject.value("sha256").toString(),
+								   path);
 }
 
