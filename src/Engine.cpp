@@ -48,7 +48,3 @@ QString Engine::fileHashGenerate( QString path, QCryptographicHash::Algorithm ha
 	return QString();
 }
 
-const Database &Engine::getDatabase() const
-{
-	return database;
-}

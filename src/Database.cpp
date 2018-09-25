@@ -24,6 +24,7 @@ bool Database::connectToDatabase()
 bool Database::findInDatabase(const QString &md5, const QString &sha1, const QString &sha256)
 {
 	QSqlQuery sqlQuery;
+
 	sqlQuery.prepare(
 		"SELECT md5, sha1, sha256 FROM Hashes WHERE md5 = (:md5Var) OR sha1 = (:sha1Var) OR sha256 = (:sha256Var)");
 	sqlQuery.bindValue(":md5Var", md5);
@@ -50,6 +51,8 @@ bool Database::findInDatabase(const QString &hash)
 			sqlQuery.prepare("SELECT sha256 FROM Hashes WHERE sha256 = (:sha256Var)");
 			sqlQuery.bindValue(":sha256Var", hash);
 			break;
+		default:
+			break;
 	}
 
 	if (sqlQuery.exec() && sqlQuery.next()) {
@@ -58,15 +61,17 @@ bool Database::findInDatabase(const QString &hash)
 
 	return false;
 }
-void Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha256Path, const QString &name) const
+
+void Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha256Path, const QString &name)
 {
+
 	QSqlQuery sqlQuery;
+
 	sqlQuery.prepare("INSERT INTO Hashes (md5, sha1, sha256, File_name) VALUES (:md5Path, :sha1Path, :sha256Path, :name)");
 	sqlQuery.addBindValue(md5Path);
 	sqlQuery.addBindValue(sha1Path);
 	sqlQuery.addBindValue(sha256Path);
 	sqlQuery.addBindValue(name);
-	sqlQuery.exec();
 
 	if (!sqlQuery.exec()) {
 		qDebug() << "Error while inserting data into Hashes table";
@@ -75,10 +80,11 @@ void Database::addRecord(const QString &md5Path, const QString &sha1Path, const 
 
 bool Database::init()
 {
-	QSqlQuery query;
-	query.prepare("CREATE TABLE IF NOT EXISTS Hashes(md5 TEXT, sha1 TEXT, sha256 TEXT, File_name TEXT)");
-	if (!query.exec()) {
-		qDebug() << "Error creating table: " << query.lastError();
+	QSqlQuery sqlQuery;
+
+	sqlQuery.prepare("CREATE TABLE IF NOT EXISTS Hashes(md5 TEXT, sha1 TEXT, sha256 TEXT, File_name TEXT)");
+	if (!sqlQuery.exec()) {
+		qDebug() << "Error creating table: " << sqlQuery.lastError();
 		return false;
 	}
 	return true;
