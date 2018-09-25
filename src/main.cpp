@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
 	parser.process(a);
 
 	if (parser.isSet(scanOption)) {
+		engineHandler.scan(parser.value(scanOption));
 		return 0;
 	}
 	else if (parser.isSet(lookupOption)) {
