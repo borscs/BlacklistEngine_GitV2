@@ -49,11 +49,15 @@ int main(int argc, char *argv[])
 		engineHandler.scan(parser.value(scanOption));
 		return 0;
 	}
-	else if (parser.isSet(lookupOption)) {
+	else if (parser.isSet(generateOption)) {
+
 		engineHandler.generate(parser.value(scanOption));
+
 		return 0;
 	}
-	else if (parser.isSet(generateOption)) {
+	else if (parser.isSet(lookupOption)){
+
+		engineHandler.lookup(parser.value(lookupOption));
 
 		return 0;
 	}

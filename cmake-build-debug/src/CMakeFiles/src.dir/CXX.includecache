@@ -18,14 +18,6 @@ QDir
 QVariant
 -
 
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Engine.cpp
-Engine.h
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Engine.h
-Utils.h
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Utils.h
-iostream
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/iostream
-
 /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Engine.h
 QCryptographicHash
 -
@@ -69,20 +61,6 @@ QString
 -
 QStringList
 -
-
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/main.cpp
-QtCore/QCoreApplication
--
-QtCore/QCommandLineParser
--
-QFileInfo
--
-EngineHandler.h
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/EngineHandler.h
-
-/home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QCommandLineParser
-qcommandlineparser.h
-/home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qcommandlineparser.h
 
 /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QCoreApplication
 qcoreapplication.h
