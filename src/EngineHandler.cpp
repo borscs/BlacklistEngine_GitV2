@@ -18,7 +18,11 @@ void EngineHandler::scan(const QString &path)
 			utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
 			break;
 		case static_cast<int>(utils::Verdict ::Error):
-
+			jsonHelper.clearJSON();
+			jsonHelper.addToJSON("file_name", path);
+			jsonHelper.addToJSON("error", "file not found!");
+			jsonHelper.createNode();
+			utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
 			break;
 		default:
 			break;
