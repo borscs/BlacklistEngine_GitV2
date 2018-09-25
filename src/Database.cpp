@@ -33,7 +33,7 @@ bool Database::findInDatabase(const QString &md5, const QString &sha1, const QSt
 	return (sqlQuery.exec() && sqlQuery.next());
 }
 
-bool Database::findInDatabase(const QString &hash) // call the param to hash
+bool Database::findInDatabase(const QString &hash)
 {
 	QSqlQuery sqlQuery;
 
@@ -58,16 +58,14 @@ bool Database::findInDatabase(const QString &hash) // call the param to hash
 
 	return false;
 }
-void Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha265Path, const QString &name) const
+void Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha256Path, const QString &name) const
 {
 	QSqlQuery sqlQuery;
-
-	sqlQuery
-		.prepare("INSERT INTO Hashes (md5, sha1, sha256, File_name) VALUES (:md5Path, :sh1Path, :sha256Path, :name)");
-	sqlQuery.bindValue(":md5", md5Path);
-	sqlQuery.bindValue(":sh1", sha1Path);
-	sqlQuery.bindValue(":sh256", sha265Path);
-	sqlQuery.bindValue(":name", name);
+	sqlQuery.prepare("INSERT INTO Hashes (md5, sha1, sha256, File_name) VALUES (:md5Path, :sha1Path, :sha256Path, :name)");
+	sqlQuery.addBindValue(md5Path);
+	sqlQuery.addBindValue(sha1Path);
+	sqlQuery.addBindValue(sha256Path);
+	sqlQuery.addBindValue(name);
 	sqlQuery.exec();
 
 	if (!sqlQuery.exec()) {

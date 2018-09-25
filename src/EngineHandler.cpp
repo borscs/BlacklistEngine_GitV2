@@ -42,6 +42,9 @@ void EngineHandler::generate(const QString &path)
 								   jsonHelper.recordObject.value("sha1").toString(),
 								   jsonHelper.recordObject.value("sha256").toString(),
 								   path);
+//	qDebug()<<jsonHelper.recordObject.value("md5").toString();
+//	qDebug()<<jsonHelper.recordObject.value("sha1").toString();
+//	qDebug()<<jsonHelper.recordObject.value("sha256").toString();
 }
 void EngineHandler::lookup(const QString &hash)
 {
