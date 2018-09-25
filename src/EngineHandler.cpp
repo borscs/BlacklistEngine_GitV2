@@ -28,7 +28,7 @@ void EngineHandler::scan(const QString &path)
 			break;
 	}
 }
-void EngineHandler::generate( QString path )
+void EngineHandler::generate(const QString &path)
 {
 	jsonHelper.clearJSON();
 	jsonHelper.addToJSON("file_name", path);
@@ -43,4 +43,22 @@ void EngineHandler::generate( QString path )
 								   jsonHelper.recordObject.value("sha256").toString(),
 								   path);
 }
+void EngineHandler::lookup(const QString &hash)
+{
+	jsonHelper.clearJSON();
+
+	if (engine.lookup(hash)) {
+		jsonHelper.addToJSON("hash", hash);
+		jsonHelper.addToJSON("verdict", "blocked");
+		jsonHelper.createNode();
+	}
+	else {
+		jsonHelper.addToJSON("hash", hash);
+		jsonHelper.addToJSON("verdict", "No threat detected");
+		jsonHelper.createNode();
+	}
+
+	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
+}
+
 
