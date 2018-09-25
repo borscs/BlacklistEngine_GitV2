@@ -11,9 +11,3 @@ find_package(Qt5Sql REQUIRED HINTS ~/Qt/5.11.0/gcc_64)
 include_directories(src)
 
 add_subdirectory(src)
-
-
-
-if(UNIX)
-    include(CodeCoverage)
-endif()
