@@ -2,42 +2,48 @@
 
 #include <QVariant>
 
-void JsonHelper::clearJSON()
+
+void JsonHelper::clearJson()
 {
 	recordObject = QJsonObject();
 }
 
-void JsonHelper::addToJSON(const QString &tag, const QString &data)
+void JsonHelper::addToJson(const QString &tag, const QString &data)
 {
 
 	QVariant qvariant(data);
 	recordObject.insert(tag,QJsonValue::fromVariant(qvariant));
 }
 
-void JsonHelper::createNode()
-{
-	QJsonObject item;
-	item.insert("file", recordObject);
-	qJsonArray.push_back(recordObject);
-}
-
-QJsonDocument JsonHelper::createJSON(QJsonArray array)
+QJsonDocument JsonHelper::createJson(QJsonArray array)
 {
 	QJsonObject jsonObject;
-	jsonObject.insert("result", array);
+	jsonObject.insert("Scanning resutl", array);
 	QJsonDocument jsonDocument(jsonObject);
-	return jsonDocument;
+	utils.qStdOut() << jsonDocument.toJson();
 }
 
-QJsonDocument JsonHelper::createJSON()
+void JsonHelper::createJson()
 {
 	QJsonObject jsonObject;
-	jsonObject.insert("result", recordObject);
+	jsonObject.insert("Scanning resutl", recordObject);
 	QJsonDocument jsonDocument(jsonObject);
-	return jsonDocument;
+	utils.qStdOut()	 <<  jsonDocument.toJson();
+}
+void JsonHelper::pushbackToArray( const QString &result, const QString &string )
+{
+	addToJson("File_name", result);
+	addToJson("Verdict",  string);
+
 }
 
-QJsonArray JsonHelper::getQJsonArray() const
+
+void JsonHelper::onylOnePrint( const QString &hashes, const QString &string)
 {
-	return qJsonArray;
+
+	clearJson();
+	addToJson("Hows detected", string);
+	addToJson("Verdict", hashes);
+	createJson();
+
 }

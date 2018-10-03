@@ -12,17 +12,17 @@ bool Engine::lookup( QString hash )
 	return database.findInDatabase(hash);
 }
 
-qint16 Engine::fileScan( QString path )
+int Engine::fileScan( QString path )
 {
 	if (!QFileInfo::exists(path)) {
-		return static_cast<qint16>(utils::Verdict::Error);
+		return static_cast<int>(utils::Verdict::Error);
 	}
 
 	if (database.findInDatabase(hashes(path)["md5"], hashes(path)["sha1"], hashes(path)["sha256"])) {
-		return static_cast<qint16>(utils::Verdict::Threat);
+		return static_cast<int>(utils::Verdict::Threat);
 	}
 	else {
-		return static_cast<qint16>(utils::Verdict::Clear);
+		return static_cast<int >(utils::Verdict::Clear);
 	}
 }
 

@@ -789,10 +789,15 @@ src/CMakeFiles/src.dir/EngineHandler.cpp.o
 src/CMakeFiles/src.dir/JsonHelper.cpp.o
  /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/JsonHelper.cpp
  /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/JsonHelper.h
+ /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Utils.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QCoreApplication
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QDirIterator
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QJsonArray
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QJsonDocument
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QJsonObject
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QString
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QStringList
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QTextStream
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QVariant
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qalgorithms.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qarraydata.h
@@ -811,7 +816,12 @@ src/CMakeFiles/src.dir/JsonHelper.cpp.o
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qcoreapplication.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qcoreevent.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qdebug.h
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qdir.h
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qdiriterator.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qeventloop.h
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qfile.h
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qfiledevice.h
+ /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qfileinfo.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qflags.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qgenericatomic.h
  /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qglobal.h

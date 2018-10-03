@@ -10,9 +10,9 @@ namespace utils
 
 enum class Verdict
 {
-	Clear,
+	Clear ,
 	Threat,
-	Error = -1
+	Error
 };
 
 class Utils
