@@ -28,21 +28,7 @@ void EngineHandler::scan(const QString &path)
 			break;
 	}
 }
-void EngineHandler::generate(const QString &path)
-{
-	jsonHelper.clearJSON();
-	jsonHelper.addToJSON("file_name", path);
-	jsonHelper.addToJSON("md5", engine.fileHashGenerate(path, QCryptographicHash::Md5));
-	jsonHelper.addToJSON("sha1", engine.fileHashGenerate(path, QCryptographicHash::Sha1));
-	jsonHelper.addToJSON("sha256", engine.fileHashGenerate(path, QCryptographicHash::Sha256));
-	jsonHelper.createNode();
-	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
-	engine.database.addRecord(jsonHelper.recordObject.value("md5").toString(),
-								   jsonHelper.recordObject.value("sha1").toString(),
-								   jsonHelper.recordObject.value("sha256").toString(),
-								   jsonHelper.recordObject.value("file_name").toString()
-								   );
-}
+
 void EngineHandler::lookup(const QString &hash)
 {
 	jsonHelper.clearJSON();
@@ -60,14 +46,34 @@ void EngineHandler::lookup(const QString &hash)
 
 	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
 }
+
+void EngineHandler::generate(const QString &path)
+{
+	jsonHelper.clearJSON();
+	jsonHelper.addToJSON("file_name", path);
+	jsonHelper.addToJSON("md5", engine.fileHashGenerate(path, QCryptographicHash::Md5));
+	jsonHelper.addToJSON("sha1", engine.fileHashGenerate(path, QCryptographicHash::Sha1));
+	jsonHelper.addToJSON("sha256", engine.fileHashGenerate(path, QCryptographicHash::Sha256));
+	jsonHelper.createNode();
+	utils.qStdOut() << jsonHelper.createJSON().toJson(QJsonDocument::Indented);
+	engine.database.addRecord(jsonHelper.recordObject.value("md5").toString(),
+								   jsonHelper.recordObject.value("sha1").toString(),
+								   jsonHelper.recordObject.value("sha256").toString(),
+								   jsonHelper.recordObject.value("file_name").toString()
+								   );
+}
+
 bool EngineHandler::scanFolder( QString path )
 {
+	jsonHelper.clearJSON();
+
 	if (!QFileInfo::exists(path)) {
 		utils.qStdOut() << "Given folder not found!";
 		return false;
 	}
 
 	QStringList results = utils.fileInFolder(path);
+
 	jsonHelper.clearJSON();
 
 	for (auto &result : results) {
@@ -96,5 +102,4 @@ bool EngineHandler::scanFolder( QString path )
 
 	return false;
 }
-
 

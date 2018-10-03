@@ -40,16 +40,16 @@ bool Database::findInDatabase(const QString &hash)
 
 	switch (hash.length()) {
 		case 32:
-			sqlQuery.prepare("SELECT md5 FROM Hashes WHERE md5 = (:md5Var)");
-			sqlQuery.bindValue(":md5Var", hash);
+			sqlQuery.prepare("SELECT md5 FROM Hashes WHERE md5 = (:md5)");
+			sqlQuery.bindValue(":md5r", hash);
 			break;
 		case 40:
-			sqlQuery.prepare("SELECT sha1 FROM Hashes WHERE sha1 = (:sha1Var)");
-			sqlQuery.bindValue(":sha1Var", hash);
+			sqlQuery.prepare("SELECT sha1 FROM Hashes WHERE sha1 = (:sha1)");
+			sqlQuery.bindValue(":sha1", hash);
 			break;
 		case 64:
-			sqlQuery.prepare("SELECT sha256 FROM Hashes WHERE sha256 = (:sha256Var)");
-			sqlQuery.bindValue(":sha256Var", hash);
+			sqlQuery.prepare("SELECT sha256 FROM Hashes WHERE sha256 = (:sha256)");
+			sqlQuery.bindValue(":sha256", hash);
 			break;
 		default:
 			break;

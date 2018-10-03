@@ -16,7 +16,9 @@ void JsonHelper::addToJSON(const QString &tag, const QString &data)
 
 void JsonHelper::createNode()
 {
-
+	QJsonObject item;
+	item.insert("file", recordObject);
+	qJsonArray.push_back(recordObject);
 }
 
 QJsonDocument JsonHelper::createJSON(QJsonArray array)
