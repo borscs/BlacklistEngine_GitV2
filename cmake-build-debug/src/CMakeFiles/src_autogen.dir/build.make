@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.4505.18/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/183.2940.13/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.4505.18/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/183.2940.13/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -55,7 +55,7 @@ include src/CMakeFiles/src_autogen.dir/progress.make
 
 src/CMakeFiles/src_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target src"
-	cd /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src && /home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.4505.18/bin/cmake/linux/bin/cmake -E cmake_autogen /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/src_autogen.dir/AutogenInfo.cmake Debug
+	cd /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src && /home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/183.2940.13/bin/cmake/linux/bin/cmake -E cmake_autogen /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/src_autogen.dir/AutogenInfo.cmake Debug
 
 src_autogen: src/CMakeFiles/src_autogen
 src_autogen: src/CMakeFiles/src_autogen.dir/build.make

@@ -12,6 +12,7 @@ class EngineHandler
 {
 public:
 
+
 	void scan(const QString &path);
 	void generate(const QString &path);
 	void lookup(const QString &hash);

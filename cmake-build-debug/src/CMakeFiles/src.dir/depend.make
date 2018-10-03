@@ -788,10 +788,15 @@ src/CMakeFiles/src.dir/EngineHandler.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/includ
 
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: ../src/JsonHelper.cpp
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: ../src/JsonHelper.h
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: ../src/Utils.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QCoreApplication
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QDirIterator
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QJsonArray
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QJsonDocument
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QJsonObject
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QString
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QStringList
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QTextStream
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/QVariant
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qalgorithms.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qarraydata.h
@@ -810,7 +815,12 @@ src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/Q
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qcoreapplication.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qcoreevent.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qdebug.h
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qdir.h
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qdiriterator.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qeventloop.h
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qfile.h
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qfiledevice.h
+src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qfileinfo.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qflags.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qgenericatomic.h
 src/CMakeFiles/src.dir/JsonHelper.cpp.o: /home/borscs/Qt/5.11.0/gcc_64/include/QtCore/qglobal.h

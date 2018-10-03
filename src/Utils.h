@@ -10,9 +10,9 @@ namespace utils
 
 enum class Verdict
 {
-	Clear,
+	Clear ,
 	Threat,
-	Error = -1
+	Error
 };
 
 class Utils
@@ -27,19 +27,21 @@ public:
 	};
 
 
-	QStringList fileInFolder(const QString &path)
+	QStringList fileInFolder( const QString &path )
 	{
-		QStringList results;
-		QDirIterator it(path);
-		while (it.hasNext()) {
-			it.next();
-			if (QFileInfo(it.filePath()).isFile()) {
-				results << it.filePath();
+		{
+			QStringList results;
+			QDirIterator it(path);
+			while ( it.hasNext()) {
+				it.next();
+				if ( QFileInfo(it.filePath()).isFile()) {
+					results << it.filePath();
+				}
 			}
-		}
 
-		return results;
+			return results;
+		};
 	};
-};
 
+};
 }
