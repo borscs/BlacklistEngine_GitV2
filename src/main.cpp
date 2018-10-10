@@ -45,24 +45,19 @@ int main( int argc, char *argv[] )
 	parser.process(a);
 
 	if ( parser.isSet(scanOption)) {
-		engineHandler.scan(parser.value(scanOption));
-		return 0;
+
+		return engineHandler.scan(parser.value(scanOption));
 	}
 	else if ( parser.isSet(generateOption)) {
 
-		engineHandler.generate(parser.value(generateOption));
-
-		return 0;
+		return engineHandler.generate(parser.value(generateOption));
 	}
 	else if ( parser.isSet(lookupOption)) {
 
-		engineHandler.lookup(parser.value(lookupOption));
-
-		return 0;
+		return engineHandler.lookup(parser.value(lookupOption));
 	}
 	else if ( parser.isSet(scanFolderOption)) {
-		engineHandler.scanFolder(parser.value(scanFolderOption));
-		return 0;
+		return engineHandler.scanFolder(parser.value(scanFolderOption));
 	}
 
 	parser.showHelp();

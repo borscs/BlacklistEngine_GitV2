@@ -18,22 +18,22 @@ void JsonHelper::addToJson(const QString &tag, const QString &data)
 QJsonDocument JsonHelper::createJson(QJsonArray array)
 {
 	QJsonObject jsonObject;
-	jsonObject.insert("Scanning resutl", array);
+	jsonObject.insert(scan, array);
 	QJsonDocument jsonDocument(jsonObject);
-	utils.qStdOut() << jsonDocument.toJson();
+	return jsonDocument;
 }
 
-void JsonHelper::createJson()
+QJsonDocument JsonHelper::createJson()
 {
 	QJsonObject jsonObject;
-	jsonObject.insert("Scanning resutl", recordObject);
+	jsonObject.insert(scan, recordObject);
 	QJsonDocument jsonDocument(jsonObject);
-	utils.qStdOut()	 <<  jsonDocument.toJson();
+	return  jsonDocument;
 }
 void JsonHelper::pushbackToArray( const QString &result, const QString &string )
 {
-	addToJson("File_name", result);
-	addToJson("Verdict",  string);
+	addToJson(filename, result);
+	addToJson(verdict,  string);
 
 }
 
@@ -42,8 +42,8 @@ void JsonHelper::onylOnePrint( const QString &hashes, const QString &string)
 {
 
 	clearJson();
-	addToJson("Hows detected", string);
-	addToJson("Verdict", hashes);
-	createJson();
+	addToJson(filename, string);
+	addToJson(verdict, hashes);
+	utils.qStdOut()<< createJson().toJson(QJsonDocument::Indented);
 
 }

@@ -111,30 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named src
+# Target rules for targets named BLackEngine
 
 # Build rule for target.
-src: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 src
-.PHONY : src
+BLackEngine: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BLackEngine
+.PHONY : BLackEngine
 
 # fast build rule for target.
-src/fast:
-	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
-.PHONY : src/fast
+BLackEngine/fast:
+	$(MAKE) -f src/CMakeFiles/BLackEngine.dir/build.make src/CMakeFiles/BLackEngine.dir/build
+.PHONY : BLackEngine/fast
 
 #=============================================================================
-# Target rules for targets named src_autogen
+# Target rules for targets named BLackEngine_autogen
 
 # Build rule for target.
-src_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 src_autogen
-.PHONY : src_autogen
+BLackEngine_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BLackEngine_autogen
+.PHONY : BLackEngine_autogen
 
 # fast build rule for target.
-src_autogen/fast:
-	$(MAKE) -f src/CMakeFiles/src_autogen.dir/build.make src/CMakeFiles/src_autogen.dir/build
-.PHONY : src_autogen/fast
+BLackEngine_autogen/fast:
+	$(MAKE) -f src/CMakeFiles/BLackEngine_autogen.dir/build.make src/CMakeFiles/BLackEngine_autogen.dir/build
+.PHONY : BLackEngine_autogen/fast
 
 # Help Target
 help:
@@ -144,8 +144,8 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... src"
-	@echo "... src_autogen"
+	@echo "... BLackEngine"
+	@echo "... BLackEngine_autogen"
 .PHONY : help
 
 

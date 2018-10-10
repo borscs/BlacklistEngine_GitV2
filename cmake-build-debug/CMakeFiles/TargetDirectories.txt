@@ -2,5 +2,5 @@
 /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
 /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/edit_cache.dir
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/src.dir
-/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/src_autogen.dir
+/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/BLackEngine.dir
+/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/BLackEngine_autogen.dir
