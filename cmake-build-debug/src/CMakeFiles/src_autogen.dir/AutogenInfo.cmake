@@ -11,7 +11,7 @@ set(AM_BUILD_DIR "/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2
 set(AM_INCLUDE_DIR "include")
 # Files
 set(AM_SOURCES "/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Database.cpp;/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Engine.cpp;/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/EngineHandler.cpp;/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/JsonHelper.cpp;/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/main.cpp")
-set(AM_HEADERS "/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/src/Utils.h")
+set(AM_HEADERS "")
 set(AM_SETTINGS_FILE "/home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug/src/CMakeFiles/src_autogen.dir/AutogenOldSettings.txt")
 # Qt
 set(AM_QT_VERSION_MAJOR "5")
