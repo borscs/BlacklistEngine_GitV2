@@ -7,16 +7,14 @@
 class Engine
 {
 public:
-
 	bool init();
 	bool lookup(QString hash);
 	int fileScan(QString path);
 	QMap<QString, QString> hashes(const QString &path, const QString &hashes);
 	QString fileHashGenerate(QString path, QCryptographicHash::Algorithm algorithm);
+	Database &getDatabase();
 
 private:
-
 	Database database;
 public:
-	const Database &getDatabase() const;
 };

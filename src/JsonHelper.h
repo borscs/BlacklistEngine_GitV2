@@ -27,7 +27,6 @@ public:
 	void onylOnePrint(const QString  &hashes, const QString &string);
 	void pushbackToArray(const QString &result, const QString &string);
 public:
-
 	QJsonObject recordObject;
 	QJsonArray qJsonArray;
 	utils::Utils utils;
