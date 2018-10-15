@@ -47,3 +47,15 @@ void JsonHelper::onylOnePrint( const QString &hashes, const QString &string)
 	utils.qStdOut()<< createJson().toJson(QJsonDocument::Indented);
 
 }
+QJsonObject &JsonHelper::getRecordObject()
+{
+	return recordObject;
+}
+QJsonArray &JsonHelper::getQJsonArray()
+{
+	return qJsonArray;
+}
+utils::Utils &JsonHelper::getUtils()
+{
+	return utils;
+}

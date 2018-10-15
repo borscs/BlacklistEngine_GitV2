@@ -18,15 +18,16 @@ class JsonHelper
 {
 
 public:
-
-
 	void clearJson();
 	void addToJson(const QString &tag,const QString &data);
 	QJsonDocument createJson(QJsonArray array);
 	QJsonDocument createJson();
 	void onylOnePrint(const QString  &hashes, const QString &string);
 	void pushbackToArray(const QString &result, const QString &string);
-public:
+	QJsonObject &getRecordObject();
+	QJsonArray &getQJsonArray();
+	utils::Utils &getUtils();
+private:
 	QJsonObject recordObject;
 	QJsonArray qJsonArray;
 	utils::Utils utils;

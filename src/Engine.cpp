@@ -18,7 +18,9 @@ int Engine::fileScan( QString path )
 		return static_cast<int>(utils::Verdict::Error);
 	}
 
-	if (database.findInDatabase(hashes(path, "md5")["md5"], hashes(path, "sha1")["sha1"], hashes(path, "sha256")["sha256"])) {
+	QMap<QString, QString> qmap = hashes(path);
+
+	if (database.findInDatabase(qmap["md5"], qmap["sha1"], qmap["sha256"])) {
 		return static_cast<int>(utils::Verdict::Threat);
 	}
 	else {
@@ -26,16 +28,12 @@ int Engine::fileScan( QString path )
 	}
 }
 
-QMap<QString, QString> Engine::hashes(const QString &path, const QString &hashes)
+QMap<QString, QString> Engine::hashes(const QString &path)
 {
 	QMap<QString, QString> qmap;
-	if(hashes=="md5"){
 		qmap["md5"] = fileHashGenerate(path, QCryptographicHash::Algorithm::Md5);
-	}else if(hashes=="sha1"){
 		qmap["sha1"] = fileHashGenerate(path, QCryptographicHash::Algorithm::Sha1);
-	}else if(hashes=="sha256"){
 		qmap["sha256"] = fileHashGenerate(path, QCryptographicHash::Algorithm::Sha256);
-	}
 
 	return qmap;
 }
