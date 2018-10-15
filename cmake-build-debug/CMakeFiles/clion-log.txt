@@ -1,4 +1,0 @@
-/home/borscs/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/183.2940.13/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2
--- Configuring done
--- Generating done
--- Build files have been written to: /home/borscs/Dokumentumok/opswat/BlacklistEngine_Cilion_Git_V2/cmake-build-debug
