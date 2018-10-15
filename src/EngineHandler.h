@@ -16,10 +16,10 @@ static const QString file("This not hash");
 class EngineHandler
 {
 public:
-	bool scan(const QString &path);
-	bool generate(const QString &path);
-	bool lookup(const QString &hash);
-	bool scanFolder(QString path);
+	int scan(const QString &path);
+	int generate(const QString &path);
+	int lookup(const QString &hash);
+	int scanFolder(QString path);
 private:
 	QString switchcase(const QString &path);
 private:
