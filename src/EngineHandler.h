@@ -9,9 +9,8 @@
 #include "JsonHelper.h"
 
 static const QString blocked("Blocked");
-static const QString noTread("No threat Detected");
-static const QString error("File not found");
-static const QString file("This not hash");
+static const QString noThread("No threat Detected");
+static const QString ERROR_FILE_NOT_FOUND("File not found");
 
 class EngineHandler
 {
@@ -21,13 +20,9 @@ public:
 	int lookup(const QString &hash);
 	int scanFolder(QString path);
 private:
-	QString switchcase(const QString &path);
+	QString getResult(const QString &path);
 private:
 	Engine engine;
 	utils::Utils utils;
 	JsonHelper jsonHelper;
-
-
-
-
 };

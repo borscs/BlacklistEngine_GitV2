@@ -42,7 +42,7 @@ void JsonHelper::onylOnePrint( const QString &hashes, const QString &string)
 	clearJson();
 	addToJson(filename, string);
 	addToJson(verdict, hashes);
-	utils.qStdOut()<< createJson().toJson(QJsonDocument::Indented);
+	getUtils().qStdOut()<< createJson().toJson(QJsonDocument::Indented);
 }
 QJsonObject &JsonHelper::getRecordObject()
 {

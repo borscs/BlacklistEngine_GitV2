@@ -10,10 +10,9 @@ public:
 	bool init();
 	bool lookup(QString hash);
 	int fileScan(QString path);
-	QMap<QString, QString> gethashes(const QString &path);
+	QMap<QString, QString> getHashes(const QString &path);
 	QString fileHashGenerate(QString path, QCryptographicHash::Algorithm algorithm);
 	Database &getDatabase();
-
 private:
 	Database database;
 };

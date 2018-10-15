@@ -5,7 +5,7 @@ int EngineHandler::scan( const QString &path )
 	if (path.isEmpty()) {
 		return 1;
 	}
-	jsonHelper.onylOnePrint(switchcase(path), path);
+	jsonHelper.onylOnePrint(getResult(path), path);
 	return 0;
 }
 
@@ -19,7 +19,7 @@ int EngineHandler::lookup( const QString &hash )
 		return 0;
 	}
 	else {
-		jsonHelper.onylOnePrint(noTread, hash);
+		jsonHelper.onylOnePrint(noThread, hash);
 		return 0;
 	}
 
@@ -52,7 +52,7 @@ int EngineHandler::scanFolder( QString path )
 	jsonHelper.clearJson();
 
 	if ( !QFileInfo::exists(path)) {
-		jsonHelper.onylOnePrint(path, error);
+		jsonHelper.onylOnePrint(path, ERROR_FILE_NOT_FOUND);
 		return 1;
 	}
 
@@ -62,7 +62,7 @@ int EngineHandler::scanFolder( QString path )
 
 	for ( auto &result : results ) {
 
-		jsonHelper.pushbackToArray(result, switchcase(result));
+		jsonHelper.pushbackToArray(result, getResult(result));
 		jsonHelper.getQJsonArray().push_back(jsonHelper.getRecordObject());
 
 	}
@@ -71,15 +71,15 @@ int EngineHandler::scanFolder( QString path )
 
 	return 0;
 }
-QString EngineHandler::switchcase( const QString &path )
+QString EngineHandler::getResult( const QString &path )
 {
 	switch ( engine.fileScan(path)) {
 		case static_cast<int>(utils::Verdict::Clear):
-			return noTread;
+			return noThread;
 		case static_cast<int>(utils::Verdict::Threat):
 			return blocked;
 		default:
-			return error;
+			return ERROR_FILE_NOT_FOUND;
 	}
 }
 
