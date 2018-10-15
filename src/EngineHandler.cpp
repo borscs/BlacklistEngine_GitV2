@@ -2,7 +2,7 @@
 
 int EngineHandler::scan( const QString &path )
 {
-	if (path.isEmpty()) {
+	if (!QFileInfo::exists(path)) {
 		return 1;
 	}
 	jsonHelper.onylOnePrint(getResult(path), path);
@@ -11,7 +11,7 @@ int EngineHandler::scan( const QString &path )
 
 int EngineHandler::lookup( const QString &hash )
 {
-	if (hash.isEmpty()) {
+	if (hash.isEmpty()){
 		return 1;
 	}
 	if ( engine.lookup(hash)) {
@@ -27,7 +27,7 @@ int EngineHandler::lookup( const QString &hash )
 
 int EngineHandler::generate( const QString &path )
 {
-	if (path.isEmpty()) {
+	if (!QFileInfo::exists(path)) {
 		return 1;
 	}
 	jsonHelper.clearJson();

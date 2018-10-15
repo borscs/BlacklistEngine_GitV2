@@ -40,7 +40,7 @@ bool Database::findInDatabase(const QString &hash)
 	sqlQuery.prepare("SELECT md5 FROM Hashes WHERE md5 = (:md5) OR sha1 = (:sha1) OR sha256 = (:sha256)");
 	sqlQuery.bindValue(":md5", hash);
 	sqlQuery.bindValue(":sha1", hash);
-	sqlQuery.bindValue(":sha256", hash);	
+	sqlQuery.bindValue(":sha256", hash);
 
 	if (sqlQuery.exec() && sqlQuery.next()) {
 		return true;
