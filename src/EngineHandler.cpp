@@ -16,13 +16,11 @@ int EngineHandler::lookup( const QString &hash )
 	}
 	if ( engine.lookup(hash)) {
 		jsonHelper.onylOnePrint(blocked, hash);
-		return 0;
 	}
 	else {
 		jsonHelper.onylOnePrint(noThread, hash);
-		return 0;
 	}
-
+	return 0;
 }
 
 int EngineHandler::generate( const QString &path )

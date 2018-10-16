@@ -42,11 +42,7 @@ bool Database::findInDatabase(const QString &hash)
 	sqlQuery.bindValue(":sha1", hash);
 	sqlQuery.bindValue(":sha256", hash);
 
-	if (sqlQuery.exec() && sqlQuery.next()) {
-		return true;
-	}
-
-	return false;
+	return (sqlQuery.exec() && sqlQuery.next());
 }
 
 void Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha256Path, const QString &name)

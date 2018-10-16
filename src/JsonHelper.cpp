@@ -36,7 +36,6 @@ void JsonHelper::pushbackToArray( const QString &result, const QString &string )
 	addToJson(verdict,  string);
 }
 
-
 void JsonHelper::onylOnePrint( const QString &hashes, const QString &string)
 {
 	clearJson();
@@ -44,14 +43,17 @@ void JsonHelper::onylOnePrint( const QString &hashes, const QString &string)
 	addToJson(verdict, hashes);
 	getUtils().qStdOut()<< createJson().toJson(QJsonDocument::Indented);
 }
+
 QJsonObject &JsonHelper::getRecordObject()
 {
 	return recordObject;
 }
+
 QJsonArray &JsonHelper::getQJsonArray()
 {
 	return qJsonArray;
 }
+
 utils::Utils &JsonHelper::getUtils()
 {
 	return utils;
