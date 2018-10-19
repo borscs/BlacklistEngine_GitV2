@@ -7,7 +7,7 @@ bool Engine::init()
 	return database.connectToDatabase();
 }
 
-bool Engine::lookup( QString hash )
+bool Engine::lookup(const QString hash )
 {
 	return database.findInDatabase(hash);
 }
@@ -50,9 +50,9 @@ QString Engine::fileHashGenerate( QString path, QCryptographicHash::Algorithm ha
 	return QString();
 }
 
-bool Engine::addRecord( const QString md5, const QString sha1, const QString sha256, const QString name)
+bool Engine::addRecord( const QString &md5, const QString &sha1, const QString &sha256, const QString &name)
 {
-	if(database.addRecord(md5,sha1,sha256, name))
+	if(database.addRecord(md5,sha1,sha256,name))
 	{
 		return true;
 	}

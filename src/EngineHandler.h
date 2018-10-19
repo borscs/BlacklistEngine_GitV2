@@ -6,7 +6,6 @@
 
 #include "Engine.h"
 #include "Utils.h"
-#include "JsonHelper.h"
 
 static const QString BLOCKED("Blocked");
 static const QString NO_THREAT_DETECTED("No threat Detected");
