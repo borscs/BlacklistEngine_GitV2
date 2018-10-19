@@ -53,4 +53,14 @@ Database &Engine::getDatabase()
 {
 	return database;
 }
+bool Engine::addRecord( const QString md5, const QString sha1, const QString sha256, const QString name)
+{
+	if(database.addRecord(md5,sha1,sha256, name))
+	{
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 

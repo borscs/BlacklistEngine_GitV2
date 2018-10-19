@@ -40,11 +40,14 @@ int EngineHandler::generate( const QString &path )
 
 	utils.qStdOut() << jsonHelper.createJson().toJson();
 
-	engine.getDatabase().addRecord(jsonHelper.getRecordObject().value("md5").toString(),
+	if(!engine.addRecord(jsonHelper.getRecordObject().value("md5").toString(),
 								   jsonHelper.getRecordObject().value("sha1").toString(),
 								   jsonHelper.getRecordObject().value("sha256").toString(),
-								   jsonHelper.getRecordObject().value("file_name").toString()
-	);
+								   jsonHelper.getRecordObject().value("file_name").toString())){
+
+		utils.qStdOut()<< "Adding record failed";
+	}
+	
 	return 0;
 
 }

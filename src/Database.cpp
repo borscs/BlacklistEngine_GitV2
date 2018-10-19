@@ -43,7 +43,7 @@ bool Database::findInDatabase(const QString &hash)
 	return (sqlQuery.exec() && sqlQuery.next());
 }
 
-void Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha256Path, const QString &name)
+bool Database::addRecord(const QString &md5Path, const QString &sha1Path, const QString &sha256Path, const QString &name)
 {
 
 	QSqlQuery sqlQuery;
@@ -56,7 +56,9 @@ void Database::addRecord(const QString &md5Path, const QString &sha1Path, const 
 
 	if (!sqlQuery.exec()) {
 		qDebug() << "Error while inserting data into Hashes table";
+		return false;
 	}
+	return true;
 }
 
 bool Database::init()
