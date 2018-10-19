@@ -5,76 +5,67 @@ int EngineHandler::scan( const QString &path )
 {
 	QFileInfo directory(path);
 
-	if (!QFileInfo::exists(path)  ||  directory.isDir()) {
-		utils.qStdOut() << path<<": "<<ERROR_FILE_NOT_FOUND<<endl;
+	if ( !QFileInfo::exists(path) || directory.isDir()) {
+		utils.qStdOut() << path << ": " << ERROR_FILE_NOT_FOUND << endl;
 		return 1;
 	}
-	jsonHelper.onylOnePrint(getResultAndScan(path), path);
+	utils.qStdOut() << path <<": "<<getResultAndScan(path)<<endl;
 	return 0;
 }
 
 int EngineHandler::lookup( const QString &hash )
 {
-	if (hash.isEmpty()){
+	if (hash.isEmpty()) {
 		return 1;
 	}
-	if ( engine.lookup(hash)) {
-		jsonHelper.onylOnePrint(BLOCKED, hash);
+	if (engine.lookup(hash)) {
+		utils.qStdOut()<< hash << ": " << BLOCKED<<endl;
 	}
 	else {
-		jsonHelper.onylOnePrint(NO_THREAT_DETECTED, hash);
+		utils.qStdOut() << hash << ": " << NO_THREAT_DETECTED<<endl;
 	}
 	return 0;
 }
 
 int EngineHandler::generate( const QString &path )
 {
-	if (!QFileInfo::exists(path)) {
+	if ( !QFileInfo::exists(path)) {
 		return 1;
 	}
-	jsonHelper.clearJson();
-	jsonHelper.addToJson("file_name", path);
-	jsonHelper.addToJson("md5", engine.fileHashGenerate(path, QCryptographicHash::Md5));
-	jsonHelper.addToJson("sha1", engine.fileHashGenerate(path, QCryptographicHash::Sha1));
-	jsonHelper.addToJson("sha256", engine.fileHashGenerate(path, QCryptographicHash::Sha256));
+	QMap<QString, QString> hashes = engine.getHashes(path);
+	utils.qStdOut() << path << ":" << endl;
+	utils.qStdOut() << "md5: " << hashes["md5"] << endl;
+	utils.qStdOut() << "sha1: " << hashes["sha1"] << endl;
+	utils.qStdOut() << "sha256: " << hashes["sha256"] << endl;
 
-	utils.qStdOut() << jsonHelper.createJson().toJson();
+	if ( !engine.addRecord(hashes["md5"], hashes["sha1"], hashes["sha256"], path)) {
 
-	if(!engine.addRecord(jsonHelper.getRecordObject().value("md5").toString(),
-								   jsonHelper.getRecordObject().value("sha1").toString(),
-								   jsonHelper.getRecordObject().value("sha256").toString(),
-								   jsonHelper.getRecordObject().value("file_name").toString())){
-
-		utils.qStdOut()<< "Adding record failed";
+		utils.qStdOut() << "Adding record failed";
 	}
-	
+
 	return 0;
 
 }
 
 int EngineHandler::scanFolder( QString path )
 {
-	jsonHelper.clearJson();
 	QFileInfo directory(path);
 
-	if (directory.isDir()) {
+	if ( directory.isDir()) {
 
 		QStringList results = utils.fileInFolder(path);
-		jsonHelper.clearJson();
-
+		utils.qStdOut()<<path<<": "<<endl;
 		for ( auto &result : results ) {
 
-			jsonHelper.pushbackToArray(result, getResultAndScan(result));
-			jsonHelper.getQJsonArray().push_back(jsonHelper.getRecordObject());
+			utils.qStdOut()<<result <<": "<< getResultAndScan(result)<<endl;
 
 		}
-		utils.qStdOut() << jsonHelper.createJson(jsonHelper.getQJsonArray()).toJson();
 
 
 		return 0;
 	}
 	else {
-		jsonHelper.onylOnePrint(NO_FOLDER, path);
+		utils.qStdOut()<<path<<": "<<NOT_FOLDER<<endl;
 		return 1;
 	}
 }

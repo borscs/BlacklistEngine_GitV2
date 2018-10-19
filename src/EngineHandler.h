@@ -11,7 +11,7 @@
 static const QString BLOCKED("Blocked");
 static const QString NO_THREAT_DETECTED("No threat Detected");
 static const QString ERROR_FILE_NOT_FOUND("File not found");
-static const QString NO_FOLDER("Not Folder");
+static const QString NOT_FOLDER("Not Folder");
 
 class EngineHandler
 {
@@ -25,5 +25,4 @@ private:
 private:
 	Engine engine;
 	utils::Utils utils;
-	JsonHelper jsonHelper;
 };

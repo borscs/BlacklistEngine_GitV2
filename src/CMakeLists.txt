@@ -3,7 +3,6 @@ set(SOURCES
         Database.cpp
         Engine.cpp
         EngineHandler.cpp
-        JsonHelper.cpp
         )
 
 add_executable(BLackEngine ${SOURCES})

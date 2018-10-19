@@ -12,7 +12,6 @@ public:
 	int fileScan(QString path);
 	QMap<QString, QString> getHashes(const QString &path);
 	QString fileHashGenerate(QString path, QCryptographicHash::Algorithm algorithm);
-	Database &getDatabase();
 	bool addRecord(const QString md5, const QString  sha1, const QString sha256,const QString name);
 private:
 	Database database;
