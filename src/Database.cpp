@@ -37,8 +37,10 @@ bool Database::findInDatabase(const QString &md5, const QString &sha1, const QSt
 bool Database::findInDatabase(const QString &hash)
 {
 	QSqlQuery sqlQuery;
-	sqlQuery.prepare("SELECT md5, sha1, sha256 FROM Hashes WHERE md5 = (:hash) OR sha1 = (:hash) OR sha256 = (:hash)");
-	sqlQuery.bindValue(":hash", hash);
+	sqlQuery.prepare("SELECT md5 FROM Hashes WHERE md5 = (:md5) OR sha1 = (:sha1) OR sha256 = (:sha256)");
+	sqlQuery.bindValue(":md5", hash);
+	sqlQuery.bindValue(":sha1", hash);
+	sqlQuery.bindValue(":sha256", hash);
 
 	return (sqlQuery.exec() && sqlQuery.next());
 }

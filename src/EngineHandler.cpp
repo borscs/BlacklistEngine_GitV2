@@ -1,15 +1,11 @@
-#include <err.h>
 #include "EngineHandler.h"
 
 int EngineHandler::scan( const QString &path )
 {
-	QFileInfo directory(path);
-
-	if (!QFileInfo::exists(path)  ||  directory.isDir()) {
-		utils.qStdOut() << path<<": "<<ERROR_FILE_NOT_FOUND<<endl;
+	if (!QFileInfo::exists(path)) {
 		return 1;
 	}
-	jsonHelper.onylOnePrint(getResultAndScan(path), path);
+	jsonHelper.onylOnePrint(getResult(path), path);
 	return 0;
 }
 
@@ -19,10 +15,10 @@ int EngineHandler::lookup( const QString &hash )
 		return 1;
 	}
 	if ( engine.lookup(hash)) {
-		jsonHelper.onylOnePrint(BLOCKED, hash);
+		jsonHelper.onylOnePrint(blocked, hash);
 	}
 	else {
-		jsonHelper.onylOnePrint(NO_THREAT_DETECTED, hash);
+		jsonHelper.onylOnePrint(noThread, hash);
 	}
 	return 0;
 }
@@ -52,36 +48,34 @@ int EngineHandler::generate( const QString &path )
 int EngineHandler::scanFolder( QString path )
 {
 	jsonHelper.clearJson();
-	QFileInfo directory(path);
 
-	if (directory.isDir()) {
-
-		QStringList results = utils.fileInFolder(path);
-		jsonHelper.clearJson();
-
-		for ( auto &result : results ) {
-
-			jsonHelper.pushbackToArray(result, getResultAndScan(result));
-			jsonHelper.getQJsonArray().push_back(jsonHelper.getRecordObject());
-
-		}
-		utils.qStdOut() << jsonHelper.createJson(jsonHelper.getQJsonArray()).toJson();
-
-
-		return 0;
-	}
-	else {
-		jsonHelper.onylOnePrint(NO_FOLDER, path);
+	if ( !QFileInfo::exists(path)) {
+		jsonHelper.onylOnePrint(path, ERROR_FILE_NOT_FOUND);
 		return 1;
 	}
+
+	QStringList results = utils.fileInFolder(path);
+
+	jsonHelper.clearJson();
+
+	for ( auto &result : results ) {
+
+		jsonHelper.pushbackToArray(result, getResult(result));
+		jsonHelper.getQJsonArray().push_back(jsonHelper.getRecordObject());
+
+	}
+	utils.qStdOut() << jsonHelper.createJson(jsonHelper.getQJsonArray()).toJson();
+
+
+	return 0;
 }
-QString EngineHandler::getResultAndScan( const QString &path )
+QString EngineHandler::getResult( const QString &path )
 {
 	switch ( engine.fileScan(path)) {
 		case static_cast<int>(utils::Verdict::Clear):
-			return NO_THREAT_DETECTED;
+			return noThread;
 		case static_cast<int>(utils::Verdict::Threat):
-			return BLOCKED;
+			return blocked;
 		default:
 			return ERROR_FILE_NOT_FOUND;
 	}

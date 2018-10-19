@@ -8,10 +8,9 @@
 #include "Utils.h"
 #include "JsonHelper.h"
 
-static const QString BLOCKED("Blocked");
-static const QString NO_THREAT_DETECTED("No threat Detected");
+static const QString blocked("Blocked");
+static const QString noThread("No threat Detected");
 static const QString ERROR_FILE_NOT_FOUND("File not found");
-static const QString NO_FOLDER("Not Folder");
 
 class EngineHandler
 {
@@ -21,7 +20,7 @@ public:
 	int lookup(const QString &hash);
 	int scanFolder(QString path);
 private:
-	QString getResultAndScan(const QString &path);
+	QString getResult(const QString &path);
 private:
 	Engine engine;
 	utils::Utils utils;
